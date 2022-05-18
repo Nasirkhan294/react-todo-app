@@ -1,0 +1,33 @@
+.todo-list {
+    padding: 3rem 5rem;
+    
+  
+    &-title {
+      font-weight: 500;
+      font-size: 2rem;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      padding: 5px 0;
+      margin-bottom: 10px;
+    }
+  
+    &-content {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      border-top: 1px solid rgba(1,1,1,0.1);
+      border-bottom: 1px solid rgba(1,1,1,0.1);
+    }
+  }
+  
+  .no-todos {
+    text-align: center;
+    padding: 5px 0;
+    font-size: 14px;
+    color: gray;
+    border-top: 1px solid rgba(1,1,1,0.1);
+    border-bottom: 1px solid rgba(1,1,1,0.1);
+  }
+  

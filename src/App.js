@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { TodoForm } from './Components/todo-form/TodoForm';
+import { TodoList } from './Components/todo-list/TodoList';
+import { TodoResults } from './Components/todo-results/TodoResults';
+import { TodosContext } from './TodosContext';
+import './index.scss';
 
-function App() {
+const todosTemplate = [
+  {
+    id: 0,
+    label: 'Fix an ability to display all tasks',
+    checked: false,
+  },
+  {
+    id: 1,
+    label: 'Fix a layout, checkboxes should be listed in a column',
+    checked: false,
+  },
+  {
+    id: 2,
+    label: 'Fix an ability to add a new task',
+    checked: false,
+  },
+  {
+    id: 3,
+    label: 'Fix an ability to toggle a task',
+    checked: false,
+  },
+  {
+    id: 4,
+    label: 'Fix an ability to delete a task',
+    checked: false,
+  },
+  {
+    id: 5,
+    label: 'Fix an ability to count completed tasks',
+    checked: false,
+  },
+];
+
+const App = () => {
+  const [todos, setTodos] = React.useState(todosTemplate);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="root">
+      <TodosContext.Provider value={{ todos, setTodos }}>
+        <TodoList />
+        <TodoResults />
+        <TodoForm />
+      </TodosContext.Provider>
     </div>
   );
-}
+};
 
-export default App;
+
+export default App
